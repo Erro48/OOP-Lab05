@@ -1,6 +1,5 @@
 package it.unibo.oop.lab05.ex1;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -42,24 +41,24 @@ public final class UseSet {
          */
     	final Collection<String> coll = new TreeSet<>();
     	
-    	for(int i = 1; i <= CYCLES; i++) {
-    		coll.add(((Integer)i).toString());
+    	for (int i = 1; i <= CYCLES; i++) {
+    		coll.add(Integer.toString(i));
     	}
     	
     	System.out.println(coll.toString());
     	
     	// remove elements divisible by 3
     	Iterator<String> strIterator = coll.iterator();
-    	while(strIterator.hasNext()) {
+    	while (strIterator.hasNext()) {
     		String str = strIterator.next();
-    		if(Integer.valueOf(str) % 3 == 0) {
+    		if(Integer.parseInt(str) % 3 == 0) {
     			strIterator.remove();
     		}
     	}
     	
     	// print the collection without using toString()
     	System.out.print("[ ");
-    	for(String str : coll) {
+    	for (String str : coll) {
     		System.out.print(str + " ");
     	}
     	System.out.println("]");
@@ -67,7 +66,7 @@ public final class UseSet {
     	
     	// check if there are only even numbers
     	boolean onlyEven = true;
-    	for(String str : coll) {
+    	for (String str : coll) {
     		if((Integer.parseInt(str) % 2) != 0) {
     			onlyEven = false;
     		}
