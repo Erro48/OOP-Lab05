@@ -2,6 +2,7 @@ package it.unibo.oop.lab05.ex1;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,7 +16,7 @@ public final class UseSet {
 
     private UseSet() {
     }
-
+    
     /**
      * @param args
      *            ignored
@@ -47,12 +48,27 @@ public final class UseSet {
     	
     	System.out.println(coll.toString());
     	
-    	coll.removeAll(Arrays.asList("3", "6", "9", "12", "15", "18"));
+    	Iterator<String> strIterator = coll.iterator();
+    	while(strIterator.hasNext()) {
+    		String str = strIterator.next();
+    		if(Integer.valueOf(str) % 3 == 0) {
+    			strIterator.remove();
+    		}
+    	}
     	
     	System.out.print("[ ");
     	for(String str : coll) {
     		System.out.print(str + " ");
     	}
     	System.out.println("]");
+    	
+    	boolean onlyEven = true;
+    	for(String str : coll) {
+    		if((Integer.parseInt(str) % 2) != 0) {
+    			onlyEven = false;
+    		}
+    	}
+    	
+    	System.out.println(onlyEven ? "Solo pari" : "Anche dispari");
     }
 }
