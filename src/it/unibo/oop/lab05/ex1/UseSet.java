@@ -48,6 +48,7 @@ public final class UseSet {
     	
     	System.out.println(coll.toString());
     	
+    	// remove elements divisible by 3
     	Iterator<String> strIterator = coll.iterator();
     	while(strIterator.hasNext()) {
     		String str = strIterator.next();
@@ -56,12 +57,15 @@ public final class UseSet {
     		}
     	}
     	
+    	// print the collection without using toString()
     	System.out.print("[ ");
     	for(String str : coll) {
     		System.out.print(str + " ");
     	}
     	System.out.println("]");
     	
+    	
+    	// check if there are only even numbers
     	boolean onlyEven = true;
     	for(String str : coll) {
     		if((Integer.parseInt(str) % 2) != 0) {
