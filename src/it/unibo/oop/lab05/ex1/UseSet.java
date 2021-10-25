@@ -10,6 +10,8 @@ import java.util.TreeSet;
  * 
  */
 public final class UseSet {
+	
+	private static final int CYCLES = 20;
 
     private UseSet() {
     }
@@ -39,10 +41,18 @@ public final class UseSet {
          */
     	final Collection<String> coll = new TreeSet<>();
     	
-    	for(int i = 1; i <= 20; i++) {
+    	for(int i = 1; i <= CYCLES; i++) {
     		coll.add(((Integer)i).toString());
     	}
     	
     	System.out.println(coll.toString());
+    	
+    	coll.removeAll(Arrays.asList("3", "6", "9", "12", "15", "18"));
+    	
+    	System.out.print("[ ");
+    	for(String str : coll) {
+    		System.out.print(str + " ");
+    	}
+    	System.out.println("]");
     }
 }
