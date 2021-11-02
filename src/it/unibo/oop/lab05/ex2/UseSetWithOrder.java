@@ -1,9 +1,13 @@
 package it.unibo.oop.lab05.ex2;
 
+import java.util.TreeSet;
+
 /**
  * 
  */
 public final class UseSetWithOrder {
+	
+	private static final int CYCLES = 100;
 
     private UseSetWithOrder() {
     }
@@ -24,5 +28,14 @@ public final class UseSetWithOrder {
          * 
          * 3) Prints the set, which must be ordered
          */
+    	TreeSet<String> orderedTreeSet = new OrderedTreeSet();
+    	
+    	for(int i = 0; i < CYCLES; i++) {
+    		int rand = (int)(Math.random() * 100);
+    		orderedTreeSet.add(Integer.toString(rand));
+    	}
+    	
+    	System.out.println(orderedTreeSet);
+    	
     }
 }
